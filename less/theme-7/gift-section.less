@@ -1,0 +1,62 @@
+/* ======= Gift Section ======= */
+.gift-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.message-container {
+    background: transparent url('../images/frame-pink.png') no-repeat center top;
+    min-height: 620px;
+    position: relative;
+    margin-bottom: 200px;
+    
+    .intro {
+        margin-bottom: 30px;
+        color: @text-color-secondary;
+    }
+    
+    .thank-you {
+        font-size: 46px;
+        color: @color-primary;
+        margin-bottom: 15px;
+    }
+    .signature {
+        font-size: 28px;
+        color: @text-color-secondary;
+    }
+}
+
+.message-inner {
+    max-width: 600px;
+    padding: 30px;
+    padding-top: 150px;
+}
+
+.couple-profile {
+    position: absolute;
+    bottom: -120px;
+    left: 50%;
+    margin-left: -163px;
+    width: 326px;
+    height: 304px;
+    background: transparent url('../images/heart-couple-pink.png') no-repeat center center;
+    .background-size(contain);
+}
+
+.brand-list {
+    li {
+        padding: 0 30px;
+        margin-bottom: 30px;
+        a {
+            &:hover {
+                img {
+                    .opacity(1);
+                }
+            }
+        }
+    }
+    img {
+        max-width: 160px;
+        .opacity(0.8);
+    }
+}

@@ -1,0 +1,78 @@
+/* ======= Hero Section ======= */
+.hero-section {
+    margin-top: 55px;
+    background: darken(@text-color-primary, 10%) url('../images/hero-bg.jpg') no-repeat 50% top;
+    .background-size(cover);
+    height: 760px;
+    position: relative;
+}
+
+.curve-holder {
+    display: block;
+    background: transparent url('../images/curve-mask.svg') no-repeat 50% bottom;
+    .background-size(cover);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100%;
+    height:120px;
+    z-index: 10;
+}
+
+.btn-rsvp {
+    position: relative;
+    z-index: 20;
+}
+
+.hero-box {
+    background: rgba(0, 0, 0, 0.6);
+    color: rgba(256, 256, 256, 0.85);
+    padding: 30px;
+    padding-top: 90px;
+    padding-bottom: 60px;
+    height: 760px;
+    .date {
+        font-size: 28px;
+        color: @text-color-primary;
+        background: transparent url('../images/ribbon-lime.svg') no-repeat center top;
+        height: 126px;
+        padding-top: 8px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        .opacity(0.85);
+    }
+    
+}
+
+.headline {
+    .names {
+        font-size: 76px;
+        margin-bottom: 20px;
+    }
+    .statement {
+        font-size: 36px;
+        margin-bottom: 45px;
+    }
+    
+    .statement-text {
+        display: inline-block;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .swirl-left {
+        display: inline-block;
+        background: transparent url('../images/swirl-left.svg') no-repeat left center;
+        .background-size(contain);
+        width: 34px;
+        height: 39px;
+    }
+    .swirl-right {
+        display: inline-block;
+        background: transparent url('../images/swirl-right.svg') no-repeat right center;
+        .background-size(contain);
+        width: 34px;
+        height: 39px;
+    }
+}

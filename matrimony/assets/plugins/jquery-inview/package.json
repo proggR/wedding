@@ -1,0 +1,23 @@
+{
+  "name": "jquery-inview",
+  "version": "1.0.0",
+  "description": "Element 'inview' Event Plugin",
+  "main": "jquery.inview.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jardix22/jquery.inview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jardix22/jquery.inview/issues"
+  },
+  "homepage": "https://github.com/jardix22/jquery.inview#readme"
+}

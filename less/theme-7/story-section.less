@@ -1,0 +1,63 @@
+/* ======= Story Section ======= */
+.story-section {
+    background: @text-color-primary url('../images/story-bg.jpg') no-repeat 50% top;
+    .background-size(cover);
+    padding-top: 60px;
+    padding-bottom: 90px;
+    .container {
+        position: relative;
+    }
+}
+
+.story-box {
+    .title {
+        margin-bottom: 60px;
+    }
+    .content-container {
+        background: rgba(256, 256, 256, 0.85);
+        padding: 30px;
+        text-align: left;
+        .border-radius(10px);
+    }
+}
+
+.story-carousel {
+    .item {
+        min-height: 500px;
+        padding: 15px;
+    }
+    .item-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+    .carousel-indicators {
+        bottom: 0;
+        li {
+            background: lighten(@text-color-primary, 40%);
+            border-color: lighten(@text-color-primary, 40%);
+            .opacity(0.8);
+            &.active {
+                width: 12px;
+                height: 12px;
+                margin: 0;
+                background-color: @text-color-primary;
+                border-color: @text-color-primary;
+            }
+        }
+    }
+    
+    .love-icon {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .icon-jar {
+        font-size:40px;
+    }
+    .icon-glasses {
+        font-size:42px;
+    }
+    
+}

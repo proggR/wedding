@@ -1,0 +1,143 @@
+/* ======= Modal ======= */
+.modal {  
+ 
+    .modal-dialog {
+        width: 760px;
+    }
+    .modal-title {
+        font-weight: bold;
+        font-size: 28px;
+        padding-top: 26px;
+        .title {
+            margin-bottom: 15px;
+        }
+        .subtitle {
+            font-size: 18px;
+            font-weight: normal;
+            color: @text-color-secondary;
+        }
+    }
+    
+    .modal-body {
+        padding: 30px 60px;
+    }
+    .modal-header {
+        border: none;
+    }
+    .modal-content {
+        
+    }
+    .close {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 32px;
+        font-weight: 300;
+        margin-top: 0;
+        .opacity(0.6);
+        color: @text-color-primary;
+        .text-shadow(none);
+        &:hover {
+            color: @text-color-primary;
+            .opacity(1);
+        }
+    }
+    
+    .error {
+        color: @error;
+        display: block;
+        font-size: 14px;
+        text-align: left;
+        padding-top: 5px;
+        padding-left: 5px;            
+        font-weight: 300;
+    }
+    
+    .event-col {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .col-title {
+        color: @text-color-secondary;
+    }
+    .col-subtitle {
+        font-size: 24px;
+        margin-bottom: 15px;
+        
+    }
+    .section-title {
+        color: darken(@color-primary, 10%);
+        font-size: 16px;
+        .fa {
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+    
+    .figure-container {
+        margin-bottom: 30px;
+        img {
+            .border-radius(10px);
+        }
+    }
+    
+    .facilities-list {
+        margin-bottom: 30px;
+        li {
+            margin-bottom: 15px;
+            font-size: 16px;
+            .fa {
+                color: @color-primary;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            .details {
+                font-size: 14px;
+                color: @text-color-secondary;
+                padding-left: 25px;
+                display: inline-block;
+            }
+        }
+    }
+
+}
+
+/* RSVP Modal */
+.modal-rsvp {
+    .modal-title {
+        margin-bottom: 0;
+    }
+
+    textarea.form-control {
+        height: 120px;
+    }
+    
+    .additional-info {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: @text-color-secondary;
+    }
+}
+
+/* Direction Modal */
+.direction-modal {
+    .modal-dialog {
+        width: 80%;
+    }
+}
+
+
+/* Bootstrap Gallery */
+.blueimp-gallery>.close {
+    font-weight: 300;
+    font-size: 32px;
+    color: #fff;
+    .opacity(0.8);
+    &:hover {
+        color: #fff;
+        .opacity(1);
+    }
+}
+
+
+
