@@ -1,0 +1,35 @@
+
+.hero-box a.btn-primary, .hero-box .btn-primary{
+		background-color:##ffd8b4
+		;		
+}
+
+.headline.script .names{
+	line-height:1.3em;
+}
+
+.hero-box .date {
+    font-size: 28px;
+    color: #413a38;
+    background: transparent url(../images/ribbon-pink.svg) no-repeat center top;
+}
+.figure-container{
+	text-align: center;
+}
+.figure-container img{
+	margin: 0 auto;
+}
+
+.list-unstyled {
+
+    list-style: none;
+}
+
+.wedding-section .list-link {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.action-wrapper{
+	padding-top:20px!important;
+}

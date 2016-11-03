@@ -26,7 +26,8 @@ $(document).ready(function() {
     
     /* ======= Countdown ========= */
 	// set the date we're counting down to
-    var target_date = new Date("July 16, 2018").getTime();
+	var data_date = $("#countdown-box").attr('data-date');
+    var target_date = new Date(data_date).getTime();
      
     // variables for time units
     var days, hours, minutes, seconds;
@@ -79,39 +80,26 @@ $(document).ready(function() {
     /* ======= Google Map ======= */
     map = new GMaps({
         div: '#map',
-        lat: 50.980187,
-        lng: -3.179117,
+        lat: 44.272048,
+        lng: -77.733357,
         scrollwheel: false,
         zoom: 14,
     });
     
     map.addMarker({
-        lat: 50.980187,
-        lng: -3.179117,
+        lat: 44.272048,
+        lng: -77.733357,
         verticalAlign: 'top',
         title: 'Ceremony Location',  
         infoWindow: {
-            content: '<div class="note">Ceremony</div><h4 class="map-title script">St Paul\'s Church</h4><div class="address"><span class="region">Address line goes here</span><br><span class="postal-code">Postcode</span><br><span class="city-name">City</span></div>'
+            content: '<h4 class="map-title script">Polmenna Barn</h4><div class="address"><span class="region">179 Catchmore Rd</span><br><span class="postal-code">K0L 1L0</span><br><span class="city-name">Campbellford</span></div>'
         }
         
         
     });
     
-
-    map.addMarker({
-        lat: 50.969747,
-        lng: -3.199985,
-        title: 'Reception Location',      
-        infoWindow: {
-            content: '<div class="note">Reception</div><h4 class="map-title script">The Manor House</h4><div class="address"><span class="region">Address line goes here</span><br><span class="postal-code">Postcode</span><br><span class="city-name">City</span></div>'
-        } 
-        
-    });
-    
     /*display marker 1 address on load */
     google.maps.event.trigger(map.markers[0], 'click');
-    /*display marker 2 address on load */
-    google.maps.event.trigger(map.markers[1], 'click');
 
     
     /* ===== Packery ===== */
