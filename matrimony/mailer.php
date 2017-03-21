@@ -26,7 +26,8 @@
 
         // Set the recipient email address.
         //IMPORTANT TODO: CHANGE THIS TO YOUR EMAIL ADDRESS!!
-        $recipient = "demo@3rdwavemedia.com";
+        // $recipient = "demo@3rdwavemedia.com";
+        $recipient = "brandon@sourced.fm";
 
         // Set the email subject.
         $subject = "New contact from $name";
