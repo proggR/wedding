@@ -8,10 +8,10 @@ class DatabaseAdapter{
 
     public function  __construct() {
         $this->id = 0;
-        $this->conn = mysql_connect(DB_HOST,DB_USER,DB_PASS);
-        mysql_set_charset('utf8',$this->conn);
+        $this->conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS);
+        mysqli_set_charset('utf8',$this->conn);
         if(!$this->conn)
-                $this->error = mysql_error();
+                $this->error = mysqli_error();
         $this->query = '';
         $this->ordb = false;
         $this->prep_query = false;
@@ -21,7 +21,7 @@ class DatabaseAdapter{
         $this->result = array();
         $this->dont_wrap = array();
 
-        mysql_select_db(DATABASE, $this->conn) or die($this->error = mysql_error());
+        mysqli_select_db(DATABASE, $this->conn) or die($this->error = mysqli_error());
     }
 
     public function applyParams(){
@@ -61,8 +61,8 @@ class DatabaseAdapter{
         }
         $this->prev_query = $this->prep_query;  
         $db_name = !$this->ordb?DATABASE:$this->ordb;
-        mysql_select_db($db_name);//redundant call to make insert work properly (already called in constructor)
-        $result = mysql_query($this->prep_query,$this->conn);
+        mysqli_select_db($db_name);//redundant call to make insert work properly (already called in constructor)
+        $result = mysqli_query($this->prep_query,$this->conn);
         $GLOBALS['num_queries']++;
         if(!$result){
             if(DEBUG){
@@ -72,7 +72,7 @@ class DatabaseAdapter{
             return false;
         }
         if(is_resource($result)){
-            while($row = mysql_fetch_assoc($result)){
+            while($row = mysqli_fetch_assoc($result)){
                 $this->result[] = $row;
             }
         }else{
@@ -83,7 +83,7 @@ class DatabaseAdapter{
             error_log("[QueryLog: Results] : ".$this->prep_query);
         }        
         $this->prep_query = false;        
-        $this->id = mysql_insert_id();
+        $this->id = mysqli_insert_id();
         return $this->result;
     }
 
@@ -117,15 +117,15 @@ class DatabaseAdapter{
 
     public function delete(){
         $this->execute();
-        return mysql_affected_rows($this->conn);
+        return mysqli_affected_rows($this->conn);
     }
 
     public function autoExec($type,$where='1=1'){
         $db_name = !$this->ordb?DATABASE:$this->ordb;
         if(!$columns = Cache::get("table_{$db_name}_{$this->query}")){
-            $results = mysql_query("SELECT column_name FROM information_schema.columns WHERE table_name='{$this->query}' AND table_schema='{$db_name}'",$this->conn);       
+            $results = mysqli_query("SELECT column_name FROM information_schema.columns WHERE table_name='{$this->query}' AND table_schema='{$db_name}'",$this->conn);       
             $columns = array();
-            while($row = mysql_fetch_assoc($results)){
+            while($row = mysqli_fetch_assoc($results)){
                 if(!in_array($row['column_name'],$columns))
                     $columns[] = $row['column_name'];
             }
@@ -161,7 +161,7 @@ class DatabaseAdapter{
 
         $result = $this->execute();
         if(!$result){
-            error_log("Error updating database. \n\t\tType:{$type} \n\t\tMySQLError:".mysql_error($this->conn)."\n\tFailed MySQLQuery:".$this->prev_query);
+            error_log("Error updating database. \n\t\tType:{$type} \n\t\tMySQLError:".mysqli_error($this->conn)."\n\tFailed MySQLQuery:".$this->prev_query);
         }
         if($result && $type=='insert'){
             return $this->id;
@@ -183,7 +183,7 @@ class DatabaseAdapter{
     }
 
     public function close(){
-        mysql_close($this->conn);
+        mysqli_close($this->conn);
     }
     
     public function setString($string,$id = -1){

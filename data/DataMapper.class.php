@@ -152,16 +152,16 @@ class Statement{
                 if(is_array($p)){
                     $list = array();
                     foreach($p as $item){
-                        $list[] = "'".mysql_real_escape_string(trim($item),$this->db->conn)."'";
+                        $list[] = "'".mysqli_real_escape_string(trim($item),$this->db->conn)."'";
                     }
                     $this->params[] = implode(",",$list);            
                 }else{
-                    $this->params[] = "'".mysql_real_escape_string($p,$this->db->conn)."'";
+                    $this->params[] = "'".mysqli_real_escape_string($p,$this->db->conn)."'";
                 }                
                 break;
             case in_array('nonzero',$types):
             case in_array('required',$types):
-                $this->params[] = "'".mysql_real_escape_string($p,$this->db->conn)."'";
+                $this->params[] = "'".mysqli_real_escape_string($p,$this->db->conn)."'";
                 if(!$p || $p == ""){                    
                     $this->is_valid = false;
                     return false;
@@ -171,7 +171,7 @@ class Statement{
                 $this->params[] = "NULL";
                 break;
             default:
-                $this->params[] = "'".mysql_real_escape_string($p,$this->db->conn)."'";
+                $this->params[] = "'".mysqli_real_escape_string($p,$this->db->conn)."'";
                 break;
         }
         $this->replace[] = $r;
