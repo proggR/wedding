@@ -1,4 +1,17 @@
 <?php
+
+    require_once '../init.php';
+
+    $rsvp = Model::get('rsvp');
+    if(!$rsvp->fromForm($_POST)){
+        echo "Something has gone horribly wrong...";
+        exit;    
+    }
+    $rsvp->create();
+    
+    echo "Thank you for your RSVP! :)";
+    exit;
+
     // Modifications to mailer script from:
     // http://blog.teamtreehouse.com/create-ajax-contact-form
     // Added input sanitizing to prevent injection
