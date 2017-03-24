@@ -9,7 +9,7 @@ class DatabaseAdapter{
     public function  __construct() {
         $this->id = 0;
         $this->conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DATABASE);
-        mysqli_set_charset('utf8',$this->conn);
+        mysqli_set_charset($this->conn,'utf8');
         if(!$this->conn)
                 $this->error = mysqli_error();
         $this->query = '';
