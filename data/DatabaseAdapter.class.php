@@ -61,8 +61,8 @@ class DatabaseAdapter{
         }
         $this->prev_query = $this->prep_query;  
         $db_name = !$this->ordb?DATABASE:$this->ordb;
-        mysqli_select_db($db_name);//redundant call to make insert work properly (already called in constructor)
-        $result = mysqli_query($this->prep_query,$this->conn);
+        mysqli_select_db($this->conn,$db_name);//redundant call to make insert work properly (already called in constructor)
+        $result = mysqli_query($this->conn,$this->prep_query);
         $GLOBALS['num_queries']++;
         if(!$result){
             if(DEBUG){
@@ -83,7 +83,7 @@ class DatabaseAdapter{
             error_log("[QueryLog: Results] : ".$this->prep_query);
         }        
         $this->prep_query = false;        
-        $this->id = mysqli_insert_id();
+        $this->id = mysqli_insert_id($this->conn);
         return $this->result;
     }
 
@@ -123,7 +123,7 @@ class DatabaseAdapter{
     public function autoExec($type,$where='1=1'){
         $db_name = !$this->ordb?DATABASE:$this->ordb;
         if(!$columns = Cache::get("table_{$db_name}_{$this->query}")){
-            $results = mysqli_query("SELECT column_name FROM information_schema.columns WHERE table_name='{$this->query}' AND table_schema='{$db_name}'",$this->conn);       
+            $results = mysqli_query($this->conn,"SELECT column_name FROM information_schema.columns WHERE table_name='{$this->query}' AND table_schema='{$db_name}'");       
             $columns = array();
             while($row = mysqli_fetch_assoc($results)){
                 if(!in_array($row['column_name'],$columns))
