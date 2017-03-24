@@ -8,7 +8,7 @@ class DatabaseAdapter{
 
     public function  __construct() {
         $this->id = 0;
-        $this->conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS);
+        $this->conn = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DATABASE);
         mysqli_set_charset('utf8',$this->conn);
         if(!$this->conn)
                 $this->error = mysqli_error();
@@ -21,7 +21,7 @@ class DatabaseAdapter{
         $this->result = array();
         $this->dont_wrap = array();
 
-        mysqli_select_db(DATABASE, $this->conn) or die($this->error = mysqli_error());
+        // mysqli_select_db(DATABASE, $this->conn) or die($this->error = mysqli_error());
     }
 
     public function applyParams(){
