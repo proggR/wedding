@@ -1,4 +1,17 @@
+#story .carousel-inner .item{
+    min-height: 700px;
+}
+@media (max-width: 767px) {
+    #story .carousel-inner .item{
+        height: 880px;
+    }
+}
 
+@media (min-width: 768px) and (max-width: 992px) {
+    #story .carousel-inner .item{
+        height: 650px;
+    }
+}
 .hero-box a.btn-primary, .hero-box .btn-primary{
 		background-color:##ffd8b4
 		;		
